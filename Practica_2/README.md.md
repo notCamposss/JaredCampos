@@ -9,3 +9,7 @@
 **Modalidad:** individual, asincrónica
 **Tiempo estimado:** 3 a 4 horas
 **Entrega:** URL del repo + hash del commit, vía Moodle
+
+## Evidencia
+
+Se agregaron las capturas de creación, edición y eliminación del CRUD.
