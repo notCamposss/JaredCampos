@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ufide.eventapp.entity.Evento;
 import com.ufide.eventapp.service.EventoService;
@@ -35,15 +36,19 @@ public class EventoController {
         return "evento";
     }
 
-    @GetMapping("/categoria/{categoria}")
-    public String categoria(@PathVariable String categoria, Model model) {
+    @GetMapping("/categoria")
+    public String categoria(@RequestParam String categoria, Model model) {
+
         model.addAttribute("eventos", service.buscarPorCategoria(categoria));
+
         return "eventos";
     }
 
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
+
         model.addAttribute("evento", new Evento());
+
         return "form";
     }
 
@@ -56,6 +61,7 @@ public class EventoController {
         }
 
         service.guardar(evento);
+
         return "redirect:/eventos";
     }
 
@@ -69,6 +75,7 @@ public class EventoController {
         }
 
         model.addAttribute("evento", evento);
+
         return "form";
     }
 
@@ -82,6 +89,7 @@ public class EventoController {
         }
 
         evento.setId(id);
+
         service.guardar(evento);
 
         return "redirect:/eventos";
